@@ -1,0 +1,918 @@
+:root {
+  --quarry: #1E1F20;
+  --limestone: #D7D2C6;
+  --sage: #A6B09E;
+  --sand: #C9B79E;
+  --copper: #B8734F;
+  --bright-copper: #F8734B;
+  --mist: #F4F4F2;
+  --line: rgba(184, 115, 79, 0.45);
+  --soft-line: rgba(215, 210, 198, 0.16);
+  --heading: "Monumental", "Bahnschrift Condensed", "Aptos Narrow", "Arial Narrow", Impact, sans-serif;
+  --body: "Archer Sans", "Aptos", "Segoe UI", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  background: var(--quarry);
+  color: var(--limestone);
+  font-family: var(--body);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.1rem clamp(1rem, 4vw, 4.5rem);
+  border-bottom: 1px solid rgba(184, 115, 79, 0.28);
+  background: rgba(30, 31, 32, 0.86);
+  backdrop-filter: blur(18px);
+}
+
+.brand-mark img {
+  width: 190px;
+  height: 58px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2.4vw, 2.5rem);
+  color: var(--limestone);
+  font-family: var(--heading);
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.nav-links a {
+  opacity: 0.82;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--copper);
+  opacity: 1;
+}
+
+.quote-link {
+  border: 1px solid var(--line);
+  padding: 0.65rem 0.9rem;
+}
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: block;
+  padding: 7.5rem clamp(1rem, 4vw, 4.5rem) 3rem;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  background: var(--quarry);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0 0 0 auto;
+  width: 54%;
+  border-left: 2px solid var(--copper);
+  background: url("assets/porsche-hero-portrait-professional.png") center / cover no-repeat;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: 46%;
+  max-width: none;
+  min-height: calc(100vh - 10.5rem);
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: clamp(3rem, 8vh, 5rem) clamp(1.25rem, 3vw, 2.5rem) clamp(1.5rem, 3vw, 2.5rem) 0;
+  background: var(--quarry);
+}
+
+.hero-copy::before,
+.section-heading::before,
+.quote-intro::before {
+  content: "";
+  width: 7rem;
+  height: 1px;
+  margin-bottom: 2rem;
+  background: var(--copper);
+}
+
+.eyebrow,
+.section-number,
+.feature-tile span,
+.service-card h3,
+.material-list h3,
+.quote-form span,
+.proof-row,
+.site-footer,
+.text-link {
+  font-family: var(--heading);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+}
+
+.eyebrow {
+  max-width: 19ch;
+  margin: 0 0 1.1rem;
+  color: var(--copper);
+  font-size: clamp(1.15rem, 1.8vw, 1.7rem);
+  line-height: 1.15;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 0.98;
+  font-weight: 500;
+}
+
+h1 {
+  max-width: 12ch;
+  margin-bottom: 1.25rem;
+  color: var(--limestone);
+  font-size: clamp(3.35rem, 4.4vw, 5.25rem);
+}
+
+.section-number,
+.quote-intro a,
+.text-link {
+  color: var(--copper);
+}
+
+.hero-subhead {
+  max-width: 33rem;
+  margin-bottom: 2rem;
+  color: rgba(215, 210, 198, 0.86);
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+}
+
+.button-primary,
+.quote-form button {
+  width: fit-content;
+  border: 1px solid var(--copper);
+  background: linear-gradient(135deg, rgba(184,115,79,0.92), rgba(201,183,158,0.66));
+  color: var(--quarry);
+  cursor: pointer;
+  font-family: var(--heading);
+  font-size: 0.9rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.95rem 1.45rem;
+}
+
+.button-primary:hover,
+.quote-form button:hover {
+  filter: brightness(1.1);
+}
+
+.proof-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+  margin-top: 2.6rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.proof-row img {
+  width: 100%;
+  height: 10.5rem;
+  border-right: 1px solid var(--line);
+  object-fit: contain;
+}
+
+.proof-row img:nth-child(2n) {
+  border-right: 0;
+}
+
+.proof-row img:nth-child(-n + 2) {
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-image {
+  height: calc(100vh - 10.5rem);
+  min-height: 36rem;
+  margin: 0;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  filter: saturate(0.88) contrast(1.08);
+}
+
+.section {
+  padding: clamp(4rem, 8vw, 8rem) clamp(1rem, 4vw, 4.5rem);
+  border-bottom: 1px solid var(--line);
+  background: var(--quarry);
+}
+
+.split-section {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(2rem, 6vw, 7rem);
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(30,31,32,0.96), rgba(30,31,32,0.72)),
+    url("assets/porsche-hero-professional.png") 30% center / cover no-repeat;
+}
+
+.split-section::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(30,31,32,0.32), rgba(30,31,32,0.68));
+}
+
+.split-section .section-heading h2 {
+  font-size: clamp(2.8rem, 5.2vw, 5.3rem);
+}
+
+.split-section .section-copy {
+  align-self: center;
+  justify-self: center;
+  max-width: 38rem;
+}
+
+.strength-logo {
+  display: none;
+}
+
+.section-heading,
+.quote-intro {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-heading.full {
+  max-width: 55rem;
+  margin-bottom: 3rem;
+}
+
+.section-number {
+  margin-bottom: 0.75rem;
+  font-size: clamp(1.8rem, 3.4vw, 4rem);
+  line-height: 1;
+}
+
+h2 {
+  max-width: 12ch;
+  color: var(--mist);
+  font-size: clamp(3.4rem, 7vw, 7rem);
+}
+
+.strength-heading span {
+  color: var(--limestone);
+}
+
+.strength-heading strong {
+  color: var(--copper);
+  font: inherit;
+}
+
+.section-heading.full h2 {
+  max-width: none;
+  color: var(--limestone);
+  font-size: clamp(2.8rem, 5.5vw, 5.6rem);
+}
+
+.section-heading.full p {
+  color: var(--limestone);
+}
+
+.section-copy,
+.project-copy p,
+.quote-intro p {
+  max-width: 42rem;
+  color: rgba(215, 210, 198, 0.78);
+  font-size: clamp(1rem, 1.3vw, 1.18rem);
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  border-bottom: 1px solid var(--line);
+  background: var(--quarry);
+}
+
+.feature-tile {
+  position: relative;
+  min-height: 20rem;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.feature-tile.wide {
+  grid-column: span 3;
+  aspect-ratio: 1.45 / 1;
+  min-height: 0;
+}
+
+.feature-tile:not(.wide) {
+  grid-column: span 2;
+  aspect-ratio: 1.2 / 1;
+  min-height: 0;
+}
+
+.feature-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.98) brightness(0.98) contrast(1.03);
+  transition: transform 700ms ease, filter 700ms ease;
+}
+
+.feature-tile:hover img {
+  transform: scale(1.035);
+  filter: saturate(0.95) brightness(0.96) contrast(1.08);
+}
+
+.feature-tile span {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: var(--mist);
+  font-size: 0.82rem;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.service-card {
+  min-height: 16.5rem;
+  padding: 2rem;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: rgba(30, 31, 32, 0.88);
+}
+
+.service-card h3 {
+  color: var(--mist);
+  font-size: clamp(1.15rem, 1.7vw, 1.8rem);
+}
+
+.service-card p,
+.material-list p {
+  color: rgba(215, 210, 198, 0.72);
+}
+
+.line-icon {
+  position: relative;
+  display: block;
+  width: 3.1rem;
+  height: 3.1rem;
+  margin-bottom: 1.5rem;
+  color: var(--copper);
+}
+
+.line-icon::before,
+.line-icon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid currentColor;
+}
+
+.diamond::before {
+  transform: rotate(45deg) scale(0.72);
+}
+
+.diamond::after {
+  inset: 1.08rem;
+  transform: rotate(45deg);
+}
+
+.building::before {
+  inset: 0.35rem 0.9rem 0;
+}
+
+.building::after {
+  inset: 1rem 0.25rem 0;
+  border-top: 0;
+}
+
+.layers::before,
+.layers::after {
+  height: 0.72rem;
+  top: 0.65rem;
+  transform: skewY(-24deg);
+}
+
+.layers::after {
+  top: 1.7rem;
+}
+
+.shield::before {
+  border-radius: 1.5rem 1.5rem 2rem 2rem;
+}
+
+.shield::after {
+  inset: 0.82rem;
+  border-top: 0;
+  border-left: 0;
+  transform: rotate(45deg);
+}
+
+.slab::before {
+  inset: 0.55rem 0.25rem 1rem;
+  transform: skewX(-18deg);
+}
+
+.slab::after {
+  inset: 1.45rem 0.25rem 0.55rem;
+}
+
+.target::before {
+  border-radius: 50%;
+}
+
+.target::after {
+  inset: 1.28rem;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px currentColor, 0 -1.28rem 0 -1px currentColor, 1.28rem 0 0 -1px currentColor, 0 1.28rem 0 -1px currentColor, -1.28rem 0 0 -1px currentColor;
+}
+
+.project-band {
+  display: grid;
+  justify-items: center;
+  padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 8vw, 9rem);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--quarry);
+}
+
+.project-heading {
+  width: 100%;
+  text-align: center;
+}
+
+.project-heading h2 {
+  max-width: none;
+  margin-inline: auto;
+  color: var(--copper);
+  font-size: clamp(2.8rem, 5.8vw, 6rem);
+}
+
+.project-image {
+  position: relative;
+  width: min(58rem, 100%);
+  aspect-ratio: 770 / 289;
+  border: 0;
+  min-height: 0;
+  background: var(--quarry);
+  line-height: 0;
+  overflow: hidden;
+}
+
+.project-image img {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.9) contrast(1.04);
+}
+
+.project-image span {
+  position: absolute;
+  left: 1.25rem;
+  bottom: 1.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--copper);
+  color: var(--mist);
+  font-family: var(--heading);
+  font-size: 0.86rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.project-copy {
+  width: min(58rem, 100%);
+  padding: 2rem 0 0;
+  text-align: center;
+}
+
+.project-copy p {
+  margin-inline: auto;
+}
+
+.button-secondary {
+  display: inline-block;
+  width: fit-content;
+  margin: 0.7rem auto 0;
+  border: 1px solid var(--copper);
+  color: var(--limestone);
+  font-family: var(--heading);
+  font-size: 0.82rem;
+  letter-spacing: 0.2em;
+  padding: 0.9rem 1.3rem;
+  text-transform: uppercase;
+}
+
+.button-secondary:hover,
+.button-secondary:focus-visible {
+  background: var(--copper);
+  color: var(--quarry);
+}
+
+.material-section {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: clamp(2rem, 5vw, 5rem);
+}
+
+.material-section .section-heading h2 {
+  color: var(--limestone);
+  font-size: clamp(2.8rem, 5.2vw, 5.4rem);
+}
+
+.material-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-self: center;
+  gap: 0;
+  margin-top: 2rem;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.material-list div {
+  min-width: 0;
+  background: var(--quarry);
+  border-right: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.material-list div:last-child {
+  border-right: 0;
+}
+
+.material-list img {
+  display: block;
+  width: 100%;
+  height: 15rem;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.94) brightness(0.96) contrast(1.04);
+}
+
+.material-list h3,
+.material-list p {
+  padding-inline: 1.35rem;
+}
+
+.material-list h3 {
+  margin-top: 1.35rem;
+  color: var(--mist);
+  font-size: 1rem;
+}
+
+.material-list p {
+  padding-bottom: 1.3rem;
+}
+
+.quote-section {
+  display: grid;
+  grid-template-columns: 0.9fr minmax(20rem, 31rem);
+  gap: clamp(2rem, 7vw, 8rem);
+  padding: clamp(4rem, 8vw, 8rem) clamp(1rem, 4vw, 4.5rem);
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(90deg, rgba(30,31,32,0.82), rgba(30,31,32,0.94)),
+    url("assets/project-glimpse.jpg") center / cover;
+}
+
+.quote-intro h2 {
+  max-width: 11ch;
+  color: var(--limestone);
+  font-size: clamp(2.8rem, 4.8vw, 4.8rem);
+}
+
+.quote-kicker {
+  margin-bottom: 0.85rem;
+  color: var(--copper);
+  font-family: var(--heading);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.quote-form {
+  display: grid;
+  gap: 0.9rem;
+  padding: clamp(1.2rem, 4vw, 2rem);
+  border: 1px solid var(--line);
+  background: rgba(30, 31, 32, 0.9);
+  box-shadow: 0 1.5rem 6rem rgba(0,0,0,0.42);
+}
+
+.quote-form label {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.quote-form span {
+  color: rgba(244,244,242,0.72);
+  font-size: 0.68rem;
+}
+
+.quote-form input,
+.quote-form select,
+.quote-form textarea {
+  width: 100%;
+  border: 1px solid rgba(215,210,198,0.22);
+  border-radius: 0;
+  background: rgba(30,31,32,0.78);
+  color: var(--mist);
+  font: inherit;
+  padding: 0.85rem;
+  outline: none;
+}
+
+.quote-form input:focus,
+.quote-form select:focus,
+.quote-form textarea:focus {
+  border-color: var(--copper);
+}
+
+.quote-form button {
+  width: 100%;
+  margin-top: 0.3rem;
+}
+
+.contact-panel {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 1.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: rgba(215,210,198,0.82);
+}
+
+.contact-panel p {
+  margin-bottom: 0;
+}
+
+.contact-panel a {
+  width: fit-content;
+  color: var(--copper);
+}
+
+.contact-panel span {
+  margin-left: 0.35rem;
+  color: var(--limestone);
+  font-family: var(--body);
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.site-footer {
+  display: grid;
+  grid-template-columns: 18rem 1fr auto;
+  align-items: start;
+  gap: 2rem;
+  padding: 2rem clamp(1rem, 4vw, 4.5rem);
+  border-top: 1px solid var(--line);
+  background: var(--quarry);
+  color: rgba(215,210,198,0.72);
+  font-size: 0.74rem;
+}
+
+.site-footer img {
+  width: 16rem;
+  height: 5rem;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.site-footer p {
+  margin-bottom: 0.5rem;
+}
+
+.site-footer a {
+  color: var(--copper);
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.social-links > span {
+  color: var(--limestone);
+}
+
+.social-links a {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  border: 1px solid var(--line);
+}
+
+.social-links svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+@media (max-width: 980px) {
+  .site-header {
+    position: sticky;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    width: 100%;
+    flex-wrap: wrap;
+    overflow: visible;
+    padding-bottom: 0.2rem;
+  }
+
+  .hero,
+  .split-section,
+  .project-band,
+  .material-section,
+  .quote-section {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: 0;
+  }
+
+  .hero-copy {
+    order: 1;
+    width: 100%;
+    min-height: auto;
+    background: var(--quarry);
+  }
+
+  .hero::after {
+    position: relative;
+    inset: auto;
+    order: 2;
+    width: calc(100% + 2rem);
+    min-height: 34rem;
+    margin-inline: -1rem;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+    background-position: center;
+  }
+
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .material-list {
+    grid-template-columns: 1fr;
+  }
+
+  .material-list div {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .material-list div:last-child {
+    border-bottom: 0;
+  }
+
+  .material-list img {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .project-image {
+    border-right: 0;
+  }
+
+  .site-footer {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .site-header {
+    padding: 0.9rem 1rem;
+  }
+
+  .brand-mark img {
+    width: 140px;
+  }
+
+  .nav-links {
+    gap: 0.65rem 1rem;
+    font-size: 0.66rem;
+  }
+
+  .quote-link {
+    padding: 0.45rem 0.65rem;
+  }
+
+  .hero {
+    padding-inline: 1rem;
+  }
+
+  h1 {
+    font-size: clamp(3.25rem, 17vw, 5.3rem);
+  }
+
+  h2 {
+    font-size: clamp(2.9rem, 14vw, 4.5rem);
+  }
+
+  .proof-row {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 2rem;
+  }
+
+  .image-grid,
+  .service-grid,
+  .material-list {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-tile,
+  .feature-tile.wide,
+  .feature-tile:not(.wide) {
+    grid-column: auto;
+    min-height: 19rem;
+  }
+
+  .section,
+  .quote-section {
+    padding-inline: 1rem;
+  }
+
+  .service-card {
+    min-height: auto;
+  }
+}
