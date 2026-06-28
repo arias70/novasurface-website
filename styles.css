@@ -820,6 +820,28 @@ h2 {
   margin-top: 0.3rem;
 }
 
+.quote-form button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.form-status {
+  min-height: 1.4rem;
+  margin: 0.2rem 0 0;
+  color: var(--limestone);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.form-status-success {
+  color: var(--limestone);
+}
+
+.form-status-error,
+.form-status-error a {
+  color: var(--copper);
+}
+
 .contact-panel {
   display: grid;
   gap: 0.35rem;
