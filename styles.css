@@ -826,11 +826,23 @@ h2 {
 }
 
 .form-status {
-  min-height: 1.4rem;
-  margin: 0.2rem 0 0;
+  display: block;
+  min-height: 0;
+  margin: 0;
+  border: 1px solid transparent;
+  background: transparent;
   color: var(--limestone);
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   line-height: 1.5;
+}
+
+.form-status-success,
+.form-status-error {
+  margin-top: 0.45rem;
+  padding: 0.95rem 1rem;
+  border-color: var(--copper);
+  background: rgba(23, 24, 25, 0.96);
+  box-shadow: 0 1rem 3rem rgba(0,0,0,0.24);
 }
 
 .form-status-success {
